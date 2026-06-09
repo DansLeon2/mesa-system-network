@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
+    "build:frontend": "cd ../frontend && npm install && npm run build",
     "seed": "node scripts/seed.js"
   },
   "dependencies": {

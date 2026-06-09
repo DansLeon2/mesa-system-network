@@ -10,7 +10,7 @@ Aplicacion monolitica para gestion de reservas de mesas con Node.js + Express, R
 - `backend/scripts/seed.js`: usuario admin y clientes demo.
 - `stitch/`: HTML y screenshots descargados desde Stitch como referencia.
 
-## Inicio rapido
+## Inicio rapido monolitico
 
 ```bash
 psql -U odoo1 -c "CREATE DATABASE reservas_db;"
@@ -20,12 +20,13 @@ cd backend
 copy .env.example .env
 npm install
 npm run seed
-npm run dev
-
-cd ../frontend
-npm install
+npm run build:frontend
 npm run dev
 ```
+
+Abre la aplicacion en `http://localhost:3001/`. La API queda en `http://localhost:3001/api`.
+
+Para desarrollo visual tambien puedes levantar Vite en `http://localhost:5173`, pero la entrega final funciona desde Express en el puerto `3001`.
 
 Credenciales demo:
 

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const authRoutes = require('./modules/auth/authRoutes');
 const userRoutes = require('./modules/users/userRoutes');
@@ -14,6 +15,7 @@ const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173' }));
 app.use(express.json());
+const frontendDistPath = path.join(__dirname, '..', '..', 'frontend', 'dist');
 
 app.get('/api/health', (_, res) => res.json({ status: 'online', ts: new Date() }));
 app.use('/api/auth', authRoutes);
@@ -22,7 +24,18 @@ app.use('/api/clients', authMiddleware, clientRoutes);
 app.use('/api/tables', authMiddleware, tableRoutes);
 app.use('/api/reservations', authMiddleware, reservationRoutes);
 app.use('/api/reports', authMiddleware, reportRoutes);
+
+app.use('/api', (req, res) => {
+  res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
+});
+
+app.use(express.static(frontendDistPath));
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  res.sendFile(path.join(frontendDistPath, 'index.html'));
+});
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`MESA//SYSTEM API online on port ${PORT}`));
+app.listen(PORT, () => console.log(`MESA//SYSTEM monolith online on port ${PORT}`));
