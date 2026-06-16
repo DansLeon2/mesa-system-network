@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Tables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="tables">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div><p class="kicker">[FLOOR_MAP_v2.0]</p><h1>TABLE_GRID</h1></div>
+            <div class="row-actions"><span id="table-count" class="status-pill">0_NODES</span><button id="new-table" class="primary-button"><span class="material-symbols-outlined">add</span> NUEVA MESA</button></div>
+          </section>
+          <section id="table-grid" class="card-grid"></section>
+          <section id="table-schedule" class="panel" style="margin-top:18px;"><div class="empty-state">SELECT_TABLE_SCHEDULE</div></section>
+        </main>
+      </section>
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop" data-close-drawer></div>
+    <aside id="table-drawer" class="drawer">
+      <div class="panel-head"><div><p class="kicker">[EDIT_SEQUENCE]</p><h2 id="table-drawer-title">NUEVA_MESA</h2></div><button class="icon-button" type="button" data-close-drawer><span class="material-symbols-outlined">close</span></button></div>
+      <form id="table-form" class="drawer-body grid">
+        <input type="hidden" name="id" />
+        <label class="field"><span>[TABLE_ID]</span><input name="numero" type="number" min="1" required /></label>
+        <label class="field"><span>[CAPACITY]</span><input name="capacidad" type="number" min="1" required /></label>
+        <label class="field"><span>[ZONE_SECTOR]</span><select name="ubicacion"><option value="interior">interior</option><option value="terraza">terraza</option><option value="ventana">ventana</option><option value="salon_privado">salon_privado</option><option value="barra">barra</option></select></label>
+        <label class="field"><span>[STATUS]</span><select name="estado"><option value="disponible">disponible</option><option value="ocupada">ocupada</option><option value="mantenimiento">mantenimiento</option><option value="inactiva">inactiva</option></select></label>
+        <label class="field"><span>[ACTIVE_SIGNAL]</span><input name="activo" type="checkbox" checked style="width:auto; min-height:auto;" /></label>
+      </form>
+      <footer class="drawer-footer"><button class="ghost-button" type="button" data-close-drawer>CANCEL</button><button class="primary-button" form="table-form" type="submit">SYNC_CHANGES</button></footer>
+    </aside>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/tables.js"></script>
+  </body>
+</html>

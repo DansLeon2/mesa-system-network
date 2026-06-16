@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - SECURE LOGIN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body class="login-body">
+    <div class="scanline-overlay"></div>
+    <main class="login-card">
+      <div class="login-brand">
+        <h1>◈ MESA//SYS</h1>
+        <p>NEURAL RESERVATION NETWORK v2.0</p>
+      </div>
+      <div class="login-status">
+        <span>NODE_01_AUTH</span>
+        <span>STATUS: READY</span>
+      </div>
+      <form class="grid" data-login-form>
+        <label class="field">
+          <span>[OPERATOR_ID]</span>
+          <input name="username" type="text" placeholder="admin" required autocomplete="username" />
+        </label>
+        <label class="field">
+          <span>[SECURE_ACCESS_KEY]</span>
+          <input name="password" type="password" placeholder="********" required autocomplete="current-password" />
+        </label>
+        <p class="danger" data-login-error></p>
+        <button class="primary-button" type="submit">
+          INICIAR SESION
+          <span class="material-symbols-outlined">login</span>
+        </button>
+      </form>
+    </main>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+  </body>
+</html>

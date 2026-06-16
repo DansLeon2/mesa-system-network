@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div>
+              <p class="kicker">[WELCOME_OPERATOR]</p>
+              <h1>SYSTEM_DASHBOARD</h1>
+            </div>
+            <a class="primary-button" href="/reservations"><span class="material-symbols-outlined">add</span> INIT_NEW_ENTRY</a>
+          </section>
+
+          <section class="grid four">
+            <article class="panel"><p class="micro-label">[RESERVAS_HOY]</p><div id="metric-today" class="metric">0</div></article>
+            <article class="panel"><p class="micro-label">[CONFIRMADAS]</p><div id="metric-confirmed" class="metric">0</div></article>
+            <article class="panel"><p class="micro-label">[CLIENTES]</p><div id="metric-clients" class="metric">0</div></article>
+            <article class="panel"><p class="micro-label">[OCUPACION_PERCENT]</p><div id="metric-occupancy" class="metric">0%</div></article>
+          </section>
+
+          <section class="grid two" style="margin-top:18px;">
+            <article class="panel">
+              <div class="panel-head"><h2>RECENT_RESERVATIONS_LOG</h2><a class="ghost-button" href="/reservations">OPEN</a></div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>ID</th><th>Cliente</th><th>Mesa</th><th>Timestamp</th><th>Guests</th><th>Status</th></tr></thead>
+                  <tbody id="dashboard-reservations"></tbody>
+                </table>
+              </div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2>SPATIAL_GRID_STATUS</h2><a class="ghost-button" href="/tables">GRID</a></div>
+              <div id="dashboard-tables" class="card-grid"></div>
+            </article>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/dashboard.js"></script>
+  </body>
+</html>

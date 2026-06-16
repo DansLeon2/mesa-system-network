@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="reports">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div><p class="kicker">[ANALYTICS_CORE]</p><h1>REPORTS_DASHBOARD</h1></div>
+            <span class="status-pill">ADMIN_ONLY</span>
+          </section>
+          <div id="reports-error"></div>
+          <section class="grid two">
+            <article class="panel"><div class="panel-head"><h2>Reservas por estado</h2></div><div id="report-status-bars"></div></article>
+            <article class="panel"><div class="panel-head"><h2>Mesas mas reservadas</h2></div><div id="report-top-tables"></div></article>
+            <article class="panel"><div class="panel-head"><h2>Horarios pico</h2></div><div id="report-peak-bars"></div></article>
+            <article class="panel">
+              <div class="panel-head"><h2>Clientes frecuentes</h2></div>
+              <div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Email</th><th>Total</th></tr></thead><tbody id="report-frequent-clients"></tbody></table></div>
+            </article>
+          </section>
+          <section class="panel" style="margin-top:18px;">
+            <div class="panel-head"><h2>Canceladas recientes</h2></div>
+            <div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Mesa</th><th>Fecha</th><th>Hora</th></tr></thead><tbody id="report-cancelled"></tbody></table></div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/reports.js"></script>
+  </body>
+</html>

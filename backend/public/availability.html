@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Availability</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="availability">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div><p class="kicker">[SCAN_SECTOR]</p><h1>GRID_STATUS</h1></div>
+            <span id="availability-count" class="status-pill">0_AVAILABLE</span>
+          </section>
+          <section class="panel">
+            <form id="availability-form" class="form-grid">
+              <label class="field"><span>[FECHA]</span><input name="fecha" type="date" required /></label>
+              <label class="field"><span>[INICIO]</span><input name="hora_inicio" type="time" required /></label>
+              <label class="field"><span>[FIN]</span><input name="hora_fin" type="time" required /></label>
+              <label class="field"><span>[PERSONAS]</span><input name="num_personas" type="number" min="1" required /></label>
+              <button class="primary-button" type="submit"><span class="material-symbols-outlined">radar</span> EXECUTE</button>
+            </form>
+          </section>
+          <section id="availability-results" class="card-grid" style="margin-top:18px;"></section>
+        </main>
+      </section>
+    </div>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/availability.js"></script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Clients</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="clients">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div><p class="kicker">[CLIENT_DATABASE]</p><h1>CLIENT_REGISTRY</h1></div>
+            <div class="row-actions"><span id="client-count" class="status-pill">0_IDENTITIES_FOUND</span><button id="new-client" class="primary-button"><span class="material-symbols-outlined">add</span> INIT_NEW_ENTRY</button></div>
+          </section>
+          <section class="panel">
+            <form id="client-search-form" class="form-grid">
+              <label class="field full"><span>[QUERY_CLIENT_DATABASE]</span><input id="client-search" type="search" placeholder="Nombre, telefono, email o ID" /></label>
+              <button class="primary-button" type="submit"><span class="material-symbols-outlined">search</span> SCAN</button>
+            </form>
+          </section>
+          <section class="panel" style="margin-top:18px;">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>ID Hash</th><th>Nombres</th><th>Apellidos</th><th>Telefono</th><th>Email Node</th><th>Num ID</th><th style="text-align:right;">Actions</th></tr></thead>
+                <tbody id="client-rows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop" data-close-drawer></div>
+    <aside id="client-drawer" class="drawer">
+      <div class="panel-head"><div><p class="kicker">[IDENTITY_PRIMARY]</p><h2 id="client-drawer-title">NUEVO_CLIENTE</h2></div><button class="icon-button" type="button" data-close-drawer><span class="material-symbols-outlined">close</span></button></div>
+      <form id="client-form" class="drawer-body grid">
+        <input type="hidden" name="id" />
+        <label class="field"><span>NOMBRES</span><input name="nombres" type="text" required /></label>
+        <label class="field"><span>APELLIDOS</span><input name="apellidos" type="text" required /></label>
+        <label class="field"><span>TELEFONO</span><input name="telefono" type="tel" /></label>
+        <label class="field"><span>EMAIL_ADDRESS</span><input name="email" type="email" /></label>
+        <label class="field"><span>NUMERO_ID</span><input name="num_id" type="text" /></label>
+      </form>
+      <footer class="drawer-footer"><button class="ghost-button" type="button" data-close-drawer>CANCEL</button><button class="primary-button" form="client-form" type="submit">COMMIT_DATA</button></footer>
+    </aside>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/clients.js"></script>
+  </body>
+</html>

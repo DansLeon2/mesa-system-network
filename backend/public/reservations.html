@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESA//SYSTEM - Reservations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&family=Material+Symbols+Outlined:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/mesa-system.css" />
+  </head>
+  <body data-page="reservations">
+    <div class="scanline-overlay"></div>
+    <div class="app-shell">
+      <aside id="sidebar" class="sidebar"></aside>
+      <section class="main-panel">
+        <header id="topbar" class="topbar"></header>
+        <main class="page-content">
+          <section class="page-head">
+            <div><p class="kicker">[RESERVATION_CORE]</p><h1>RESERVATIONS</h1></div>
+            <span id="reservation-count" class="status-pill">0_ENTRIES</span>
+          </section>
+
+          <section class="grid two">
+            <article class="panel">
+              <div class="panel-head"><h2>NUEVA_RESERVA</h2><span class="status-pill">VER_2.4.0</span></div>
+              <form id="reservation-form" class="form-grid two">
+                <input type="hidden" name="id" />
+                <label class="field full"><span>[CLIENTE]</span><select id="reservation-client" name="id_cliente" required></select></label>
+                <label class="field full"><span>[MESA]</span><select id="reservation-table" name="id_mesa" required></select></label>
+                <label class="field"><span>[FECHA]</span><input id="reservation-date" name="fecha" type="date" required /></label>
+                <label class="field"><span>[PERSONAS]</span><input name="num_personas" type="number" min="1" value="2" required /></label>
+                <label class="field"><span>[INICIO]</span><input id="reservation-start" name="hora_inicio" type="time" required /></label>
+                <label class="field"><span>[FIN]</span><input id="reservation-end" name="hora_fin" type="time" required /></label>
+                <label class="field full"><span>[ESTADO]</span><select name="estado"><option value="pendiente">pendiente</option><option value="confirmada">confirmada</option><option value="finalizada">finalizada</option><option value="no_asistio">no_asistio</option></select></label>
+                <label class="field full"><span>[OBSERVACIONES]</span><textarea name="observaciones" placeholder="Notas de la reserva"></textarea></label>
+                <button class="primary-button" type="submit"><span class="material-symbols-outlined">flash_on</span><span id="reservation-submit-text">INIT_NEW_ENTRY</span></button>
+                <button id="reservation-reset" class="ghost-button" type="button">RESET</button>
+              </form>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><h2>FILTERS</h2></div>
+              <form id="reservation-filters" class="form-grid two">
+                <label class="field"><span>[FILTER_DATE]</span><input id="filter-date" name="fecha" type="date" /></label>
+                <label class="field"><span>[FILTER_STATE]</span><select name="estado"><option value="">ALL_STATES</option><option value="pendiente">pendiente</option><option value="confirmada">confirmada</option><option value="cancelada">cancelada</option><option value="finalizada">finalizada</option><option value="no_asistio">no_asistio</option></select></label>
+                <button class="primary-button" type="submit"><span class="material-symbols-outlined">search</span> EXECUTE</button>
+              </form>
+            </article>
+          </section>
+
+          <section class="panel" style="margin-top:18px;">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Grid ID</th><th>Client Entity</th><th>Timestamp</th><th>Sector/Table</th><th>Guests</th><th>Status</th><th style="text-align:right;">Actions</th></tr></thead>
+                <tbody id="reservation-rows"></tbody>
+              </table>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    <script src="/assets/js/layout.js"></script>
+    <script src="/assets/js/reservations.js"></script>
+  </body>
+</html>
