@@ -29,30 +29,20 @@ app.use('/api', (req, res) => {
   res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
 });
 
+// Sirve los archivos estáticos de React
 app.use(express.static(publicPath));
 
-app.get('*', (req, res) => {
-
-  if (req.path.startsWith('/api')) {
-    return res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
-  }
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
-
-Object.entries(pages).forEach(([route, file]) => {
-  app.get(route, (_, res) => {
-    res.sendFile(path.join(publicPath, file));
-  });
-});
-
+// Comodín para React SPA
 app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) {
     return res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
   }
-  return res.redirect('/');
+  return res.sendFile(path.join(publicPath, 'index.html'));
 });
 
+// Manejo de errores
 app.use(errorHandler);
 
+// Inicialización del servidor
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`MESA//SYSTEM monolith online on port ${PORT}`));
