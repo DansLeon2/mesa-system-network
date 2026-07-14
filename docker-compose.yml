@@ -20,18 +20,19 @@ services:
     image: postgres:17-alpine
     restart: unless-stopped
     environment:
-      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME:-reservas_db}
+      POSTGRES_DB: reservas_db
     volumes:
       - pgdata2:/var/lib/postgresql/data
-      # Este mapeo ejecuta el script automáticamente al crear la base de datos por primera vez
-      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      # Vamos a comentar esta línea temporalmente con un '#' para evitar que rompa el inicio
+      # - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-reservas_db}"]
+      # Simplificamos el comando quitando los símbolos de dólar
+      test: ["CMD-SHELL", "pg_isready -U postgres -d reservas_db"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
 
 volumes:
   pgdata2:
