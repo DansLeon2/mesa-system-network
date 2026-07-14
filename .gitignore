@@ -10,3 +10,7 @@ frontend/.env
 .DS_Store
 npm-debug.log*
 backend/node_modules/.bin/color-support
+
+!backend/public/
+!backend/public/dist/
+!backend/public/dist/**
