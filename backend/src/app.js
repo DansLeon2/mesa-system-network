@@ -29,18 +29,15 @@ app.use('/api', (req, res) => {
   res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
 });
 
-const pages = {
-  '/': 'index.html',
-  '/login': 'login.html',
-  '/dashboard': 'dashboard.html',
-  '/reservations': 'reservations.html',
-  '/availability': 'availability.html',
-  '/tables': 'tables.html',
-  '/clients': 'clients.html',
-  '/reports': 'reports.html'
-};
-
 app.use(express.static(publicPath));
+
+app.get('*', (req, res) => {
+
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ success: false, message: 'Endpoint no encontrado.' });
+  }
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 Object.entries(pages).forEach(([route, file]) => {
   app.get(route, (_, res) => {
