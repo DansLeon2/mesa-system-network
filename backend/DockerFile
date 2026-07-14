@@ -1,0 +1,20 @@
+# Usamos una imagen ligera y oficial de Node.js
+FROM node:20-alpine
+
+# Establecemos el directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiamos los archivos de dependencias
+COPY package*.json ./
+
+# Instalamos las dependencias
+RUN npm ci --only=production
+
+# Copiamos el resto del código (incluyendo la carpeta public y src)
+COPY . .
+
+# Exponemos el puerto que usa el monolito
+EXPOSE 3001
+
+# Comando para iniciar la aplicación
+CMD ["node", "src/app.js"]
