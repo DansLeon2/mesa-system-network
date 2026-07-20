@@ -27,7 +27,7 @@ export default function ClientsPage() {
     }
   }
 
-  // Helper para generar iniciales
+
   const getInitials = (nombres, apellidos) => {
     return `${nombres?.charAt(0) || ''}${apellidos?.charAt(0) || ''}`.toUpperCase();
   };
@@ -35,7 +35,7 @@ export default function ClientsPage() {
   return (
     <div className="max-w-[1100px] mx-auto px-6 py-10 md:mt-8 text-on-surface font-body-md">
       
-      {/* Header Section */}
+     
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
         <div>
           <h2 className="font-headline-xl text-headline-xl text-primary mb-2">Clientes</h2>
@@ -60,7 +60,7 @@ export default function ClientsPage() {
         </div>
       </div>
 
-      {/* Formulario (Vintage Style) */}
+     
       <div className="mb-10 p-6 bg-surface-container-lowest border border-secondary/20 shadow-[inset_0_0_20px_rgba(119,90,25,0.02)] rounded-xl relative">
         <h3 className="font-headline-md text-[24px] text-primary mb-6 border-b border-secondary/20 pb-2">
           {editing ? 'Actualizar información del huésped' : 'Registrar nuevo huésped'}
@@ -97,7 +97,7 @@ export default function ClientsPage() {
         </form>
       </div>
 
-      {/* Directorio de Clientes (Ledger View) */}
+    
       <div className="bg-surface-container-lowest rounded-xl shadow-[inset_0_0_0_1px_rgba(74,44,42,0.08),0_4px_24px_-8px_rgba(74,44,42,0.05)] overflow-hidden relative">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">

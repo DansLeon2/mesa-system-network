@@ -22,14 +22,14 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-background text-on-surface font-body-md texture-bg relative">
-      {/* TopAppBar Clásico (Desktop) */}
+     
       <header className="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-background/95 border-b border-secondary/30 shadow-sm backdrop-blur-sm">
         <Link className="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity" to="/">
           <Utensils size={24} />
           <span className="font-headline-lg text-[24px] italic leading-none">Le Classique</span>
         </Link>
         
-        {/* Navegación Desktop */}
+    
         <nav className="hidden lg:flex gap-6 items-center">
           {links.map(({ to, label, icon: Icon }) => (
             <NavLink 
@@ -46,7 +46,7 @@ export default function Layout() {
           ))}
         </nav>
 
-        {/* Perfil y Salir */}
+  
         <div className="flex items-center gap-6">
           <div className="text-right hidden sm:block">
             <span className="font-label-md text-[14px] text-primary block leading-tight">{user?.nombre}</span>
@@ -58,12 +58,12 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* Área Principal */}
+   
       <main className="pt-20 pb-24 lg:pb-8">
         <Outlet />
       </main>
 
-      {/* Bottom Nav (Mobile/Tablet) */}
+  
       <nav className="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container-low border-t border-secondary/20 shadow-[0_-2px_10px_rgba(74,44,42,0.08)]">
         {links.map(({ to, label, icon: Icon }) => (
           <NavLink 

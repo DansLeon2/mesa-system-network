@@ -128,7 +128,7 @@ function ChartPanel({ title, data, xKey, yKey }) {
                 contentStyle={{ background: '#ffffff', border: '1px solid #d4c3c1', borderRadius: '8px', color: '#321716', boxShadow: '0 4px 12px rgba(74,44,42,0.05)' }} 
                 itemStyle={{ color: '#775a19', fontWeight: 600 }}
               />
-              {/* Barras color dorado/marrón */}
+              
               <Bar dataKey={yKey} fill="#775a19" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>

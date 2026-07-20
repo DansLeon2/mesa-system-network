@@ -24,13 +24,13 @@ export default function DashboardPage() {
   return (
     <div className="max-w-[1100px] mx-auto px-6 py-10 md:mt-8 text-on-surface font-body-md">
       
-      {/* Header */}
+     
       <div className="mb-8">
         <p className="font-label-sm text-[12px] text-secondary uppercase tracking-widest mb-1">Resumen Diario</p>
         <h1 className="font-headline-xl text-[40px] text-primary leading-tight">Dashboard</h1>
       </div>
 
-      {/* KPI Cards */}
+    
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
         {cards.map(({ label, value, Icon }) => (
           <div key={label} className="bg-surface-container-low border border-secondary/10 shadow-[0_4px_12px_rgba(74,44,42,0.03)] rounded-xl p-6 flex flex-col justify-between h-36 border-b-[3px] border-b-secondary-container">
@@ -45,7 +45,7 @@ export default function DashboardPage() {
         ))}
       </div>
 
-      {/* Live Feed Table */}
+      
       <Panel title="Últimas Reservaciones" kicker="BITÁCORA EN VIVO">
         {reservations.length ? (
           <div className="overflow-x-auto -mx-6 md:mx-0">

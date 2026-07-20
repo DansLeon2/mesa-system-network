@@ -6,8 +6,7 @@ export default function ScheduleMatrix({ schedule, onSelectSlot, compact = false
 
   return (
     <div className={compact ? 'max-h-[300px] overflow-y-auto pr-2 hide-scrollbar' : ''}>
-      
-      {/* Tabla de Reservas */}
+ 
       {schedule.reservas?.length ? (
         <div className="bg-surface-container-low/30 rounded-lg border border-secondary/20 overflow-hidden mb-6">
           <table className="w-full text-left border-collapse">
@@ -33,7 +32,7 @@ export default function ScheduleMatrix({ schedule, onSelectSlot, compact = false
         </div>
       ) : <EmptyState text="Sin reservas registradas. Todo el día disponible." />}
 
-      {/* Grid de Horarios */}
+    
       <div className={`grid gap-3 ${compact ? 'grid-cols-2 sm:grid-cols-3' : 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4'}`}>
         {schedule.slots?.map((slot) => {
           const available = slot.estado === 'disponible';

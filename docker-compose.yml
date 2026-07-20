@@ -25,10 +25,10 @@ services:
       POSTGRES_DB: reservas_db
     volumes:
       - pgdata2:/var/lib/postgresql/data
-      # Vamos a comentar esta línea temporalmente con un '#' para evitar que rompa el inicio
+      
       # - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     healthcheck:
-      # Simplificamos el comando quitando los símbolos de dólar
+      
       test: ["CMD-SHELL", "pg_isready -U postgres -d reservas_db"]
       interval: 10s
       timeout: 5s
